@@ -1,27 +1,28 @@
 {
-  "name": "terminal-track-correios",
-  "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
-  "type": "module",
-  "preferGlobal": true,
-  "author": {
-    "name": "Maurício Mutte",
-    "email": "mauriciomutte.mm@gmail.com"
-  },
-  "keywords": [
-    "correios",
-    "track",
-    "terminal"
-  ],
-  "dependencies": {
-    "node-fetch": "^3.0.0"
-  },
-  "devDependencies": {
-    "eslint": "^5.16.0",
-    "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "prettier": "^2.4.1"
-  }
+	"name": "terminal-track-correios",
+	"version": "1.0.0",
+	"main": "index.js",
+	"license": "MIT",
+	"type": "module",
+	"preferGlobal": true,
+	"author": {
+		"name": "Maurício Mutte",
+		"email": "mauriciomutte.mm@gmail.com"
+	},
+	"keywords": [
+		"correios",
+		"track",
+		"terminal"
+	],
+	"dependencies": {
+		"node-fetch": "^3.0.0"
+	},
+	"devDependencies": {
+		"eslint": "^5.16.0",
+		"eslint-config-airbnb-base": "^14.2.1",
+		"eslint-config-prettier": "^8.3.0",
+		"eslint-plugin-import": "^2.24.2",
+		"eslint-plugin-prettier": "^4.0.0",
+		"prettier": "2.4.1"
+	}
 }
