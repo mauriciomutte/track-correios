@@ -16,5 +16,8 @@
   ],
   "dependencies": {
     "node-fetch": "^3.0.0"
+  },
+  "devDependencies": {
+    "prettier": "^2.4.1"
   }
 }
