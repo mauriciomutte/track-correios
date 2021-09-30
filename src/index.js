@@ -32,3 +32,30 @@ async function getData(code) {
 
 	return data;
 }
+
+async function run() {
+	const code = process.argv[2].toUpperCase();
+
+	logEnter(`📮 ${code}`);
+
+	const data = await getData(code);
+
+	const events = data?.eventos || [];
+
+	events.map((event) => {
+		const { descricao, descricaoWeb, dtHrCriado, unidade, unidadeDestino } =
+			event;
+
+		log(`==> ${getIcon(descricaoWeb)} ${descricao}`);
+		log(`Data: ${dtHrCriado}`);
+		log(`Local: ${unidade.nome}`);
+
+		if (unidadeDestino) {
+			log(`Indo para: ${unidadeDestino?.nome}`);
+		}
+
+		log();
+	});
+}
+
+run();
