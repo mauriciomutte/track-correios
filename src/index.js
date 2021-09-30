@@ -12,3 +12,7 @@ const iconByStatus = {
 	POSTAGEM: '📦',
 	DEFAULT: '🚧',
 };
+
+function getIcon(status) {
+	return iconByStatus[status] || iconByStatus.DEFAULT;
+}
