@@ -5,6 +5,8 @@
 	"license": "MIT",
 	"type": "module",
 	"preferGlobal": true,
+	"bin": "src/bin.js",
+	"repository": "git@github.com:mauriciomutte/track-correios.git",
 	"author": {
 		"name": "Maurício Mutte",
 		"email": "mauriciomutte.mm@gmail.com"
