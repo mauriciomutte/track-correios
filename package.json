@@ -15,6 +15,7 @@
 		"terminal"
 	],
 	"dependencies": {
+		"chalk": "^4.1.2",
 		"node-fetch": "^3.0.0"
 	},
 	"devDependencies": {
