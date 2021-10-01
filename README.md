@@ -10,14 +10,16 @@
   </a>
 </p>
 
-# 🚀 Demo
+## 🚀 Demo
 
-# ✨ Usage
+![demo](https://user-images.githubusercontent.com/20569339/135551866-dcfcf2bc-c410-405b-924a-b46656014b4b.png)
+
+## ✨ Usage
 
 ```
 npx track-correios [code]
 ```
 
-# 📣 Contributing
+## 📣 Contributing
 
 If you want to contribute please fork the repository and get your hands dirty, and make the changes as you'd like and submit the Pull Request. Any questions, ask me on Twitter.
