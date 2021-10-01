@@ -7,6 +7,7 @@
 	"preferGlobal": true,
 	"bin": "src/bin.js",
 	"repository": "git@github.com:mauriciomutte/track-correios.git",
+	"homepage": "https://github.com/mauriciomutte/track-correios",
 	"author": {
 		"name": "Maurício Mutte",
 		"email": "mauriciomutte.mm@gmail.com"
