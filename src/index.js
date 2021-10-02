@@ -39,6 +39,11 @@ async function getData(code) {
 export default async function run() {
 	const code = process?.argv[2]?.toUpperCase();
 
+	if (!code) {
+		log(`🖊️ Escreva um código para que a busca seja realizada!`);
+		return null;
+	}
+
 	logEnter(chalk.bold(`📮 ${code}`));
 
 	const data = await getData(code);
@@ -58,4 +63,5 @@ export default async function run() {
 
 		log();
 	});
+	return null;
 }
