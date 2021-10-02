@@ -16,6 +16,9 @@
 	"type": "module",
 	"main": "index.js",
 	"bin": "src/bin.js",
+	"scripts": {
+		"start": "node src/bin.js"
+	},
 	"dependencies": {
 		"chalk": "^4.1.2",
 		"node-fetch": "^3.0.0"
