@@ -45,7 +45,7 @@ export default async function run() {
 
 	const events = data?.eventos || [];
 
-	events.map((event) => {
+	events?.forEach((event) => {
 		const { descricao, descricaoWeb, dtHrCriado, unidade, unidadeDestino } = event;
 
 		log(`==> ${getIcon(descricaoWeb)} ${descricao}`);
