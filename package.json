@@ -1,22 +1,21 @@
 {
 	"name": "track-correios",
 	"version": "1.0.2",
-	"main": "index.js",
-	"license": "MIT",
-	"type": "module",
-	"preferGlobal": true,
-	"bin": "src/bin.js",
-	"repository": "git@github.com:mauriciomutte/track-correios.git",
-	"homepage": "https://github.com/mauriciomutte/track-correios",
-	"author": {
-		"name": "Maurício Mutte",
-		"email": "mauriciomutte.mm@gmail.com"
-	},
 	"keywords": [
 		"correios",
 		"track",
 		"terminal"
 	],
+	"homepage": "https://github.com/mauriciomutte/track-correios",
+	"repository": "git@github.com:mauriciomutte/track-correios.git",
+	"license": "MIT",
+	"author": {
+		"name": "Maurício Mutte",
+		"email": "mauriciomutte.mm@gmail.com"
+	},
+	"type": "module",
+	"main": "index.js",
+	"bin": "src/bin.js",
 	"dependencies": {
 		"chalk": "^4.1.2",
 		"node-fetch": "^3.0.0"
@@ -28,5 +27,6 @@
 		"eslint-plugin-import": "^2.24.2",
 		"eslint-plugin-prettier": "^4.0.0",
 		"prettier": "2.4.1"
-	}
+	},
+	"preferGlobal": true
 }
