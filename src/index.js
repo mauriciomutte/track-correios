@@ -1,7 +1,7 @@
 import fetch from 'node-fetch';
 import chalk from 'chalk';
 
-const log = console.log;
+const { log } = console;
 const logEnter = (text) => {
 	log(text);
 	log();
