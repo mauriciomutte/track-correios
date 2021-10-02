@@ -36,7 +36,7 @@ async function getData(code) {
 	return data;
 }
 
-async function run() {
+export default async function run() {
 	const code = process?.argv[2]?.toUpperCase();
 
 	logEnter(chalk.bold(`📮 ${code}`));
@@ -59,5 +59,3 @@ async function run() {
 		log();
 	});
 }
-
-export { run };
