@@ -28,16 +28,16 @@ async function getData(code) {
 	const response = await fetch(`${url}?objeto=${code}&mqs=S`);
 	const data = await response.json();
 
-	if (data.erro) {
-		log(`❌ ${data.mensagem}`);
-		return;
+	if (data?.erro) {
+		log(`❌ ${data?.mensagem}`);
+		return null;
 	}
 
 	return data;
 }
 
 async function run() {
-	const code = process.argv[2].toUpperCase();
+	const code = process?.argv[2]?.toUpperCase();
 
 	logEnter(chalk.bold(`📮 ${code}`));
 
@@ -50,7 +50,7 @@ async function run() {
 
 		log(`==> ${getIcon(descricaoWeb)} ${descricao}`);
 		log(chalk.blackBright(`Data: ${dtHrCriado}`));
-		log(chalk.blackBright(`Local: ${unidade.nome}`));
+		log(chalk.blackBright(`Local: ${unidade?.nome}`));
 
 		if (unidadeDestino) {
 			log(chalk.blackBright(`Indo para: ${unidadeDestino?.nome}`));
