@@ -11,6 +11,7 @@ const iconByStatus = {
 	TRANSITO: '🚚',
 	'SAIU-ENTREGA-DESTINATARIO': '🙌',
 	ENTREGUE: '🎁',
+	PAR31: '🤑', //Pagamento confirmado
 	PAR17: '💸', //Aguardando pagamento
 	PAR21: '🔎', //Encaminhado para fiscalização aduaneira
 	RecebidoCorreiosBrasil: '🛬',
