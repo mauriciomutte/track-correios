@@ -1,7 +1,7 @@
 import fetch from 'node-fetch';
 import chalk from 'chalk';
 
-const log = console.log;
+const { log } = console;
 const logEnter = (text) => {
 	log(text);
 	log();
@@ -11,9 +11,9 @@ const iconByStatus = {
 	TRANSITO: '🚚',
 	'SAIU-ENTREGA-DESTINATARIO': '🙌',
 	ENTREGUE: '🎁',
-	PAR31: '🤑', //Pagamento confirmado
-	PAR17: '💸', //Aguardando pagamento
-	PAR21: '🔎', //Encaminhado para fiscalização aduaneira
+	PAR31: '🤑', // Pagamento confirmado
+	PAR17: '💸', // Aguardando pagamento
+	PAR21: '🔎', // Encaminhado para fiscalização aduaneira
 	RecebidoCorreiosBrasil: '🛬',
 	POSTAGEM: '📦',
 	DEFAULT: '🚧',
@@ -29,16 +29,21 @@ async function getData(code) {
 	const response = await fetch(`${url}?objeto=${code}&mqs=S`);
 	const data = await response.json();
 
-	if (data.erro) {
-		log(`❌ ${data.mensagem}`);
-		return;
+	if (data?.erro) {
+		log(`❌ ${data?.mensagem}`);
+		return null;
 	}
 
 	return data;
 }
 
-async function run() {
-	const code = process.argv[2].toUpperCase();
+export default async function run() {
+	const code = process?.argv[2]?.toUpperCase();
+
+	if (!code) {
+		log(`🖊️Informe o código de rastreio para que a consulta seja realizada!`);
+		return null;
+	}
 
 	logEnter(chalk.bold(`📮 ${code}`));
 
@@ -46,12 +51,12 @@ async function run() {
 
 	const events = data?.eventos || [];
 
-	events.map((event) => {
+	events?.forEach((event) => {
 		const { descricao, descricaoWeb, dtHrCriado, unidade, unidadeDestino } = event;
 
 		log(`==> ${getIcon(descricaoWeb)} ${descricao}`);
 		log(chalk.blackBright(`Data: ${dtHrCriado}`));
-		log(chalk.blackBright(`Local: ${unidade.nome}`));
+		log(chalk.blackBright(`Local: ${unidade?.nome}`));
 
 		if (unidadeDestino) {
 			log(chalk.blackBright(`Indo para: ${unidadeDestino?.nome}`));
@@ -59,6 +64,5 @@ async function run() {
 
 		log();
 	});
+	return null;
 }
-
-export { run };
