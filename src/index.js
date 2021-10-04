@@ -40,7 +40,7 @@ export default async function run() {
 	const code = process?.argv[2]?.toUpperCase();
 
 	if (!code) {
-		log(`🖊️ Escreva um código para que a busca seja realizada!`);
+		log(`🖊️Informe o código de rastreio para que a consulta seja realizada!`);
 		return null;
 	}
 
