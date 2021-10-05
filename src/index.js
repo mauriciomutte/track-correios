@@ -49,9 +49,9 @@ export default async function run() {
 
 	const { eventos } = await getData(code);
 
-	if (!eventos) return;
+	const events = eventos || [];
 
-	eventos.map((event) => {
+	events.map((event) => {
 		const { descricao, descricaoWeb, dtHrCriado, unidade, unidadeDestino } = event;
 
 		log(`==> ${getIcon(descricaoWeb)} ${descricao}`);
