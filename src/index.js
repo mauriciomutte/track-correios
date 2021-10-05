@@ -1,7 +1,7 @@
 import fetch from 'node-fetch';
 import chalk from 'chalk';
 
-const log = console.log;
+const { log } = console;
 const logEnter = (text) => {
 	log(text);
 	log();
@@ -11,8 +11,9 @@ const iconByStatus = {
 	TRANSITO: '🚚',
 	'SAIU-ENTREGA-DESTINATARIO': '🙌',
 	ENTREGUE: '🎁',
-	PAR17: '💸', //Aguardando pagamento
-	PAR21: '🔎', //Encaminhado para fiscalização aduaneira
+	PAR31: '🤑', // Pagamento confirmado
+	PAR17: '💸', // Aguardando pagamento
+	PAR21: '🔎', // Encaminhado para fiscalização aduaneira
 	RecebidoCorreiosBrasil: '🛬',
 	POSTAGEM: '📦',
 	DEFAULT: '🚧',
@@ -30,14 +31,19 @@ async function getData(code) {
 
 	if (data.erro) {
 		log(`❌ ${data.mensagem}`);
-		return;
+		return null;
 	}
 
 	return data;
 }
 
-async function run() {
+export default async function run() {
 	const code = process.argv[2].toUpperCase();
+
+	if (!code) {
+		log(`🖊️Informe o código de rastreio para que a consulta seja realizada!`);
+		return null;
+	}
 
 	logEnter(chalk.bold(`📮 ${code}`));
 
@@ -59,6 +65,5 @@ async function run() {
 			log(chalk.blackBright(`Indo para: ${nome}`));
 		}
 	});
+	return null;
 }
-
-export { run };
