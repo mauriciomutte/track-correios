@@ -29,8 +29,8 @@ async function getData(code) {
 	const response = await fetch(`${url}?objeto=${code}&mqs=S`);
 	const data = await response.json();
 
-	if (data.erro) {
-		log(`❌ ${data.mensagem}`);
+	if (data?.erro) {
+		log(`❌ ${data?.mensagem}`);
 		return null;
 	}
 
@@ -38,7 +38,7 @@ async function getData(code) {
 }
 
 export default async function run() {
-	const code = process.argv[2].toUpperCase();
+	const code = process?.argv[2]?.toUpperCase();
 
 	if (!code) {
 		log(`🖊️Informe o código de rastreio para que a consulta seja realizada!`);
@@ -49,9 +49,7 @@ export default async function run() {
 
 	const { eventos } = await getData(code);
 
-	if (!eventos) {
-		return;
-	}
+	if (!eventos) return;
 
 	eventos.map((event) => {
 		const { descricao, descricaoWeb, dtHrCriado, unidade, unidadeDestino } = event;
@@ -61,8 +59,7 @@ export default async function run() {
 		log(chalk.blackBright(`Local: ${unidade.nome}`));
 
 		if (unidadeDestino) {
-			const { nome } = unidadeDestino;
-			log(chalk.blackBright(`Indo para: ${nome}`));
+			log(chalk.blackBright(`Indo para: ${unidadeDestino?.nome}`));
 		}
 	});
 	return null;
