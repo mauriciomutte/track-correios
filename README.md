@@ -16,6 +16,24 @@
 
 ## ✨ Usage
 
+Install dependencies:
+
+`yarn`
+
+or
+
+```
+npm install
+```
+
+To track your object run the command below replacing code with the object number:
+
+```
+yarn start [code]
+```
+
+or
+
 ```
 npx track-correios [code]
 ```

@@ -41,11 +41,13 @@ async function run() {
 
 	logEnter(chalk.bold(`📮 ${code}`));
 
-	const data = await getData(code);
+	const { eventos } = await getData(code);
 
-	const events = data?.eventos || [];
+	if (!eventos) {
+		return;
+	}
 
-	events.map((event) => {
+	eventos.map((event) => {
 		const { descricao, descricaoWeb, dtHrCriado, unidade, unidadeDestino } = event;
 
 		log(`==> ${getIcon(descricaoWeb)} ${descricao}`);
@@ -53,10 +55,9 @@ async function run() {
 		log(chalk.blackBright(`Local: ${unidade.nome}`));
 
 		if (unidadeDestino) {
-			log(chalk.blackBright(`Indo para: ${unidadeDestino?.nome}`));
+			const { nome } = unidadeDestino;
+			log(chalk.blackBright(`Indo para: ${nome}`));
 		}
-
-		log();
 	});
 }
 

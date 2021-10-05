@@ -12,6 +12,9 @@
 		"name": "Maurício Mutte",
 		"email": "mauriciomutte.mm@gmail.com"
 	},
+	"scripts": {
+		"start": "node src/bin.js"
+	},
 	"keywords": [
 		"correios",
 		"track",
