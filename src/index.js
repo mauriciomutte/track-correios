@@ -51,7 +51,7 @@ export default async function run() {
 
 	const events = data?.eventos || [];
 
-	events?.forEach((event) => {
+	events?.reverse().forEach((event) => {
 		const { descricao, descricaoWeb, dtHrCriado, unidade, unidadeDestino } = event;
 
 		log(`==> ${getIcon(descricaoWeb)} ${descricao}`);
