@@ -23,6 +23,17 @@ function getIcon(status) {
 	return iconByStatus[status] || iconByStatus.DEFAULT;
 }
 
+function getAddress(unidade) {
+	if (!unidade) return '';
+
+	const {
+		tipo,
+		endereco: { cidade, uf },
+	} = unidade;
+
+	return `${tipo}, ${cidade} - ${uf}`;
+}
+
 async function getData(code) {
 	const url = 'https://rastreamento.correios.com.br/app/resultado.php';
 
@@ -56,10 +67,10 @@ export default async function run() {
 
 		log(`==> ${getIcon(descricaoWeb)} ${descricao}`);
 		log(chalk.blackBright(`Data: ${dtHrCriado}`));
-		log(chalk.blackBright(`Local: ${unidade?.nome}`));
+		log(chalk.blackBright(`Local: ${getAddress(unidade)}`));
 
 		if (unidadeDestino) {
-			log(chalk.blackBright(`Indo para: ${unidadeDestino?.nome}`));
+			log(chalk.blackBright(`Indo para: ${getAddress(unidadeDestino)}`));
 		}
 
 		log();
