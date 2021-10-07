@@ -1,4 +1,4 @@
-import { Unidade } from './';
+import type { Unidade } from './';
 
 export function getAddress(unidade: Unidade) {
 	if (!unidade) return '';

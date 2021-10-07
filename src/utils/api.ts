@@ -1,5 +1,5 @@
-import { CorreiosError } from './interfaces/correios.interface';
 import axios from 'axios';
+import type { CorreiosError } from './';
 
 const baseURL = 'https://rastreamento.correios.com.br/app/';
 export const api = axios.create({ baseURL });

@@ -8,9 +8,9 @@ export interface Endereco {
 	foneFixo?: string;
 	bairro?: string;
 	cidade: string;
-	uf: string,
-	codigoPostal?: string,
-	siglaPais?: string
+	uf: string;
+	codigoPostal?: string;
+	siglaPais?: string;
 }
 
 export interface Unidade {
@@ -21,11 +21,10 @@ export interface Unidade {
 	endereco: Endereco;
 }
 
-
-export enum Rota {
-	Contexto = "CONTEXTO",
-	Normal = "NORMAL",
-	Retirada = "RETIRADA",
+export const enum Rota {
+	Contexto = 'CONTEXTO',
+	Normal = 'NORMAL',
+	Retirada = 'RETIRADA',
 }
 
 export interface Event {
@@ -38,7 +37,7 @@ export interface Event {
 	comentario?: string;
 	icone: string;
 	descricaoFrontEnd: string;
-	finalizador: "S" | "N";
+	finalizador: 'S' | 'N';
 	rota: Rota;
 	descricaoWeb: string;
 	detalhe: string;
@@ -67,6 +66,6 @@ export interface CorreiosResponse {
 }
 
 export interface CorreiosError {
-	erro: string,
-	mensagem: string
+	erro: string;
+	mensagem: string;
 }
