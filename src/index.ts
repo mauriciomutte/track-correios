@@ -1,6 +1,5 @@
 import * as chalk from 'chalk';
-import { CorreiosResponse, log, api, logEnter, isError, getIcon } from './utils';
-import { getAddress } from './utils/address';
+import { CorreiosResponse, log, api, logEnter, isError, getIcon, getAddress } from './utils';
 
 async function getData(code: string) {
 	const response = await api.get<CorreiosResponse>(`resultado.php`, {
