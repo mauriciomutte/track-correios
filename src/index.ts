@@ -1,5 +1,6 @@
 import * as chalk from 'chalk';
 import { CorreiosResponse, log, api, logEnter, isError, getIcon } from './utils';
+import { getAddress } from './utils/address';
 
 async function getData(code: string) {
 	const response = await api.get<CorreiosResponse>(`resultado.php`, {
@@ -30,15 +31,15 @@ export default async function run() {
 
 	const events = data?.eventos || [];
 
-	events?.forEach((event) => {
+	events?.reverse().forEach((event) => {
 		const { descricao, descricaoWeb, dtHrCriado, unidade, unidadeDestino } = event;
 
 		log(`==> ${getIcon(descricaoWeb)} ${descricao}`);
 		log(chalk.blackBright(`Data: ${dtHrCriado}`));
-		log(chalk.blackBright(`Local: ${unidade?.nome}`));
+		log(chalk.blackBright(`Local: ${getAddress(unidade)}`));
 
 		if (unidadeDestino) {
-			log(chalk.blackBright(`Indo para: ${unidadeDestino?.nome}`));
+			log(chalk.blackBright(`Indo para: ${getAddress(unidadeDestino)}`));
 		}
 
 		log();
