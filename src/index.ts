@@ -1,35 +1,14 @@
-import fetch from 'node-fetch';
-import chalk from 'chalk';
+import * as chalk from 'chalk';
+import { CorreiosResponse, log, api, logEnter, isError, getIcon } from './utils';
 
-const { log } = console;
-const logEnter = (text) => {
-	log(text);
-	log();
-};
+async function getData(code: string) {
+	const response = await api.get<CorreiosResponse>(`resultado.php`, {
+		params: { objeto: code, mqs: 'S' },
+	});
 
-const iconByStatus = {
-	TRANSITO: '🚚',
-	'SAIU-ENTREGA-DESTINATARIO': '🙌',
-	ENTREGUE: '🎁',
-	PAR31: '🤑', // Pagamento confirmado
-	PAR17: '💸', // Aguardando pagamento
-	PAR21: '🔎', // Encaminhado para fiscalização aduaneira
-	RecebidoCorreiosBrasil: '🛬',
-	POSTAGEM: '📦',
-	DEFAULT: '🚧',
-};
+	const data = response.data;
 
-function getIcon(status) {
-	return iconByStatus[status] || iconByStatus.DEFAULT;
-}
-
-async function getData(code) {
-	const url = 'https://rastreamento.correios.com.br/app/resultado.php';
-
-	const response = await fetch(`${url}?objeto=${code}&mqs=S`);
-	const data = await response.json();
-
-	if (data?.erro) {
+	if (isError(data)) {
 		log(`❌ ${data?.mensagem}`);
 		return null;
 	}
