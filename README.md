@@ -20,6 +20,30 @@
 npx track-correios [code]
 ```
 
+## Development
+
+### Developing with docker
+To develop with docker you can build the image
+```bash
+docker build -t track-correios
+```
+And run the application
+```bash
+docker run --rm track-correios:latest yarn start [code]
+```
+
+### Developing without docker
+To setup your development environment you'll need `node` and `yarn` installed on your machine.
+
+To install the dependencies, run
+```bash
+yarn install
+```
+To run your code use
+```bash
+yarn start [code]
+```
+
 ## 📣 Contributing
 
 If you want to contribute please fork the repository and get your hands dirty, and make the changes as you'd like and submit the Pull Request. Any questions, ask me on Twitter.
