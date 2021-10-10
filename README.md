@@ -5,7 +5,7 @@
   <a href="https://github.com/mauriciomutte/track-correios/issues">
     <img alt="GitHub issues" src="https://img.shields.io/github/issues/mauriciomutte/track-correios">
   </a>
-  <a href="https://github.com/mauriciomutte/track-correios/blob/master/LICENSE">
+  <a href="https://github.com/mauriciomutte/track-correios/blob/master/LICENSE.txt">
     <img alt="GitHub license" src="https://img.shields.io/github/license/mauriciomutte/track-correios">
   </a>
 </p>
