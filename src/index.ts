@@ -1,12 +1,10 @@
-import * as chalk from 'chalk';
-import { CorreiosResponse, log, api, logEnter, isError, getIcon, getAddress } from './utils';
+import chalk from 'chalk';
+import type { CorreiosResponse } from '@types';
 
-async function getData(code: string) {
-	const response = await api.get<CorreiosResponse>(`resultado.php`, {
-		params: { objeto: code, mqs: 'S' },
-	});
+import { log, fetchObject, isError, getIcon, getAddress } from './utils';
 
-	const data = response.data;
+const getData = async (code: string): Promise<CorreiosResponse | null> => {
+	const data = await fetchObject(code);
 
 	if (isError(data)) {
 		log(`❌ ${data?.mensagem}`);
@@ -14,17 +12,15 @@ async function getData(code: string) {
 	}
 
 	return data;
-}
+};
 
-export default async function run() {
+const run = async () => {
 	const code = process?.argv[2]?.toUpperCase();
 
 	if (!code) {
-		log(`🖊️Informe o código de rastreio para que a consulta seja realizada!`);
+		log(`🖊️ Informe o código de rastreio para que a consulta seja realizada!`);
 		return null;
 	}
-
-	logEnter(chalk.bold(`📮 ${code}`));
 
 	const data = await getData(code);
 
@@ -33,7 +29,7 @@ export default async function run() {
 	events?.reverse().forEach((event) => {
 		const { descricao, descricaoWeb, dtHrCriado, unidade, unidadeDestino } = event;
 
-		log(`==> ${getIcon(descricaoWeb)} ${descricao}`);
+		log(`==> ${getIcon(descricaoWeb)} ${chalk.bold(descricao)}`);
 		log(chalk.blackBright(`Data: ${dtHrCriado}`));
 		log(chalk.blackBright(`Local: ${getAddress(unidade)}`));
 
@@ -43,5 +39,8 @@ export default async function run() {
 
 		log();
 	});
+
 	return null;
-}
+};
+
+export default run;
