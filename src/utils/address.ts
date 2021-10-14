@@ -1,4 +1,4 @@
-import type { Unidade } from './';
+import type { Unidade } from '@types';
 
 export function getAddress(unidade: Unidade) {
 	if (!unidade) return '';

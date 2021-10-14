@@ -1,4 +1,4 @@
-const iconByStatus: { [id: string]: string } = {
+const iconByStatus: Record<string, string> = {
 	TRANSITO: "🚚",
 	"SAIU-ENTREGA-DESTINATARIO": "🙌",
 	ENTREGUE: "🎁",
