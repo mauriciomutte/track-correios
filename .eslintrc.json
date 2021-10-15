@@ -17,5 +17,8 @@
 	},
 	"rules": {
 		"prettier/prettier": "error"
-	}
+	},
+	"ignorePatterns": [
+		"dist/**/*.js"
+	]
 }
