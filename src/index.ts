@@ -24,13 +24,13 @@ const run = async () => {
 
 	const data = await getData(code);
 
-	const events = data?.eventos || [];
+	const events = data?.objetos[0]?.eventos || [];
 
 	events?.reverse().forEach((event) => {
-		const { descricao, descricaoWeb, dtHrCriado, unidade, unidadeDestino } = event;
+		const { descricao, dtHrCriado, unidade, unidadeDestino } = event;
 
-		log(`==> ${getIcon(descricaoWeb)} ${chalk.bold(descricao)}`);
-		log(chalk.blackBright(`Data: ${dtHrCriado}`));
+		log(`==> ${getIcon(descricao)} ${chalk.bold(descricao)}`);
+		log(chalk.blackBright(`Data: ${new Date(dtHrCriado).toLocaleString()}`));
 		log(chalk.blackBright(`Local: ${getAddress(unidade)}`));
 
 		if (unidadeDestino) {
