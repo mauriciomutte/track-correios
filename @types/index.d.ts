@@ -29,9 +29,9 @@ export const enum Rota {
 
 export interface Event {
 	codigo: string;
-	tipo: string;
-	dtHrCriado: string;
 	descricao: string;
+	dtHrCriado: string;
+	tipo: string;
 	unidade: Unidade;
 	unidadeDestino: Unidade | null;
 	comentario?: string;
@@ -50,19 +50,25 @@ export interface TipoPostal {
 	categoria: string;
 }
 
-export interface CorreiosResponse {
+export interface ObjectItem {
 	codObjeto: string;
-	tipoPostal: TipoPostal;
-	dtPrevista: string;
-	modalidade: string;
 	eventos: Event[];
-	situacao: string;
-	autoDeclaracao: boolean;
-	encargoImportacao: boolean;
-	percorridaCarteiro: boolean;
+	modalidade: string;
+	tipoPostal: TipoPostal;
+	habilitaAutoDeclaracao: boolean;
+	permiteEncargoImportacao: boolean;
+	habilitaPercorridaCarteiro: boolean;
 	bloqueioObjeto: boolean;
-	arEletronico: boolean;
-	redis: boolean;
+	possuiLocker: boolean;
+	habilitaLocker: boolean;
+	habilitaCrowdshipping: boolean;
+}
+
+export interface CorreiosResponse {
+	objetos: ObjectItem[];
+	quantidade: number;
+	resultado: string;
+	versao: string;
 }
 
 export interface CorreiosError {
