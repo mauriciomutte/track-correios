@@ -29,7 +29,7 @@
 	"devDependencies": {
 		"@types/jest": "^27.5.0",
 		"@types/node": "^17.0.42",
-		"eslint": "^8.27.0",
+		"eslint": "^8.28.0",
 		"eslint-config-airbnb-base": "^15.0.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-import": "^2.26.0",
