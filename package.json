@@ -1,5 +1,6 @@
 {
 	"name": "track-correios",
+	"type": "module",
 	"version": "1.0.4",
 	"keywords": [
 		"correios",
@@ -19,7 +20,7 @@
 		"ts": "tsc -p tsconfig.json --noEmit",
 		"prebuild": "rimraf dist",
 		"build": "tsc -p tsconfig.json",
-		"start": "ts-node src/bin.ts",
+		"start": "ts-node-esm --experimental-specifier-resolution=node src/bin.ts",
 		"test": "jest"
 	},
 	"dependencies": {

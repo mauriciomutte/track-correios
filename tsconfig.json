@@ -1,24 +1,18 @@
 {
 	"compilerOptions": {
-		"target": "ES5",
-		"module": "CommonJS",
+		"target": "ES6",
+		"module": "ESNext",
 		"removeComments": true,
 		"esModuleInterop": true,
+		"allowImportingTsExtensions": true,
+		"noEmit": true,
 		"forceConsistentCasingInFileNames": true,
 		"moduleResolution": "Node",
 		"strict": true,
 		"outDir": "./dist",
-		"typeRoots": [
-			"node_modules/@types",
-			"src/@types"
-		],
+		"typeRoots": ["node_modules/@types", "src/@types"],
 		"baseUrl": "."
 	},
-	"include": [
-		"src/**/*.ts"
-	],
-	"exclude": [
-		"node_modules",
-		"dist"
-	]
+	"include": ["src/**/*.ts"],
+	"exclude": ["node_modules", "dist"]
 }
