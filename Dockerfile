@@ -4,8 +4,8 @@ FROM node:lts-bullseye-slim
 # Sets workspace folder
 WORKDIR /usr/src/app
 
-# Copies both package.json and yarn.lock
-COPY package*.json yarn.lock ./
+# Copies both package.json and
+COPY package*.json ./
 
 # Install app dependencies
 RUN yarn install
