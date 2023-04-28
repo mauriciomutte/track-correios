@@ -29,27 +29,23 @@ describe('Função fetchObject', function() {
 
 	it('deve retornar os valores corretos da api dos correios', async () => {
 		const mockedResponse = {
-			objetos: [{
-				codObjeto: 'codObjeto',
-				tipoPostal:
-					{
-						sigla: 'sigla',
-						descricao: 'descricao',
-						categoria: 'categoria',
-					},
-				modalidade: 'modalidade',
-				eventos: [],
-				habilitaAutoDeclaracao: true,
-				permiteEncargoImportacao: true,
-				habilitaPercorridaCarteiro: true,
-				bloqueioObjeto: true,
-				possuiLocker: true,
-				habilitaLocker: true,
-				habilitaCrowdshipping: true,
-			}],
-			quantidade: 1,
-  		resultado: "Todos os Eventos",
-  		versao: "1.0.0"
+			codObjeto: 'codObjeto',
+			tipoPostal:
+				{
+					sigla: 'sigla',
+					descricao: 'descricao',
+					categoria: 'categoria',
+				},
+			dtPrevista: 'dtPrevista',
+			modalidade: 'modalidade',
+			eventos: [],
+			situacao: 'situacao',
+			autoDeclaracao: true,
+			encargoImportacao: true,
+			percorridaCarteiro: true,
+			bloqueioObjeto: true,
+			arEletronico: true,
+			redis: true,
 		};
 		makeCorreiosResponse(mockedResponse);
 		const result = await fetchObject('123');

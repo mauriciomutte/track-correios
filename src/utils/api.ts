@@ -2,10 +2,17 @@ import axios from 'axios';
 
 import type { CorreiosError, CorreiosResponse } from '@types';
 
-const BASE_URL = 'https://proxyapp.correios.com.br/v1/sro-rastro';
+const BASE_URL = 'https://rastreamento.correios.com.br/app/resultado.php';
 
 export const fetchObject = async (code: string) => {
-	const { data } = await axios.get<CorreiosResponse>(`${BASE_URL}/${code}`);
+	const { data, request } = await axios.get<CorreiosResponse>(BASE_URL, {
+		params: {
+			objeto: code,
+			mqs: 'S',
+		},
+	});
+
+	console.log(request);
 
 	return data;
 };
