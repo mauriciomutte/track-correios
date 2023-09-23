@@ -10,6 +10,8 @@
   </a>
 </p>
 
+> ⚠️ **Warning:** Unfortunately, this project is currently non-functional as a result of the introduction of a captcha requirement in the Correios API.
+
 ## 🚀 Demo
 
 ![demo](https://user-images.githubusercontent.com/20569339/135551866-dcfcf2bc-c410-405b-924a-b46656014b4b.png)
@@ -23,23 +25,31 @@ npx track-correios [code]
 ## Development
 
 ### Developing with docker
+
 To develop with docker you can build the image
+
 ```bash
 docker build -t track-correios
 ```
+
 And run the application
+
 ```bash
 docker run --rm track-correios:latest yarn start [code]
 ```
 
 ### Developing without docker
+
 To setup your development environment you'll need `node` and `yarn` installed on your machine.
 
 To install the dependencies, run
+
 ```bash
 yarn install
 ```
+
 To run your code use
+
 ```bash
 yarn start [code]
 ```
